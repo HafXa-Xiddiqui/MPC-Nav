@@ -20,9 +20,9 @@ class MPCFollower(Node):
 
         # ✅ Known obstacle positions (same as in your launch file)
         self.obstacles = [
-            [0.5, 0.5],
-            [-0.5, 0.8],
-            [0.0, -0.8]
+            [0.8, 0.5],
+            [-0.6, 0.8],
+            [0.0, -1.0]
         ]
 
     def robot_callback(self, msg):

@@ -20,7 +20,7 @@ def generate_launch_description():
                     'ros2', 'run', 'gazebo_ros', 'spawn_entity.py',
                     '-entity', 'target_sphere',
                     '-file', os.path.expanduser('~/ros2_ws/src/my_world/models/target_sphere/model.sdf'),
-                    '-x', '1', '-y', '0', '-z', '0.1'
+                    '-x', '-1', '-y', '-3', '-z', '0.1'
                 ],
                 output='screen'
             )
@@ -36,7 +36,7 @@ def generate_launch_description():
                     'ros2', 'run', 'gazebo_ros', 'spawn_entity.py',
                     '-entity', 'obstacle1',
                     '-file', os.path.expanduser('~/ros2_ws/src/my_world/models/cylinder_obstacle/model.sdf'),
-                    '-x', '0.5', '-y', '0.5', '-z', '0.1'
+                    '-x', '1.0', '-y', '1.2', '-z', '0.1'
                 ],
                 output='screen'
             )
@@ -52,7 +52,7 @@ def generate_launch_description():
                     'ros2', 'run', 'gazebo_ros', 'spawn_entity.py',
                     '-entity', 'obstacle2',
                     '-file', os.path.expanduser('~/ros2_ws/src/my_world/models/cylinder_obstacle/model.sdf'),
-                    '-x', '-0.5', '-y', '0.8', '-z', '0.1'
+                    '-x', '-1.5', '-y', '0.5', '-z', '0.1'
                 ],
                 output='screen'
             )
@@ -68,7 +68,7 @@ def generate_launch_description():
                     'ros2', 'run', 'gazebo_ros', 'spawn_entity.py',
                     '-entity', 'obstacle3',
                     '-file', os.path.expanduser('~/ros2_ws/src/my_world/models/cylinder_obstacle/model.sdf'),
-                    '-x', '0.0', '-y', '-0.8', '-z', '0.1'
+                    '-x', '0.0', '-y', '-1.5', '-z', '0.1'
                 ],
                 output='screen'
             )
