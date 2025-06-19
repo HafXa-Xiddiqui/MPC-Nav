@@ -46,15 +46,15 @@ Ensure the following are installed:
 **Installation**
 
 Clone the repo
-
+```text
 git clone https://github.com/HafXa-Xiddiqui/MPC-Nav.git
-
+```
 ---
 
 **Launch the full simulation**
-
+```text
 ros2 launch mpc_follower mpc_sim.launch.py
-
+```
 This will:
 
    - Launch Gazebo with an empty world
