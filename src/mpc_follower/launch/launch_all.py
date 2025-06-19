@@ -27,7 +27,6 @@ def generate_launch_description():
         ]
     )
 
-    # ✅ Obstacle 1
     spawn_obstacle1 = TimerAction(
         period=6.0,
         actions=[
@@ -36,39 +35,37 @@ def generate_launch_description():
                     'ros2', 'run', 'gazebo_ros', 'spawn_entity.py',
                     '-entity', 'obstacle1',
                     '-file', os.path.expanduser('~/ros2_ws/src/my_world/models/cylinder_obstacle/model.sdf'),
-                    '-x', '1.0', '-y', '1.2', '-z', '0.1'
+                    '-x', '1.0', '-y', '1.2', '-z', '0.5'
                 ],
                 output='screen'
             )
         ]
     )
 
-    # ✅ Obstacle 2
     spawn_obstacle2 = TimerAction(
-        period=6.5,
-        actions=[
-            ExecuteProcess(
-                cmd=[
-                    'ros2', 'run', 'gazebo_ros', 'spawn_entity.py',
-                    '-entity', 'obstacle2',
-                    '-file', os.path.expanduser('~/ros2_ws/src/my_world/models/cylinder_obstacle/model.sdf'),
-                    '-x', '-1.5', '-y', '0.5', '-z', '0.1'
-                ],
-                output='screen'
-            )
-        ]
-    )
-
-    # ✅ Obstacle 3
-    spawn_obstacle3 = TimerAction(
         period=7.0,
         actions=[
             ExecuteProcess(
                 cmd=[
                     'ros2', 'run', 'gazebo_ros', 'spawn_entity.py',
+                    '-entity', 'obstacle2',
+                    '-file', os.path.expanduser('~/ros2_ws/src/my_world/models/cylinder_obstacle/model_1.sdf'),
+                    '-x', '-1.7', '-y', '0.7', '-z', '0.5'
+                ],
+                output='screen'
+            )
+        ]
+    )
+
+    spawn_obstacle3 = TimerAction(
+        period=8.0,
+        actions=[
+            ExecuteProcess(
+                cmd=[
+                    'ros2', 'run', 'gazebo_ros', 'spawn_entity.py',
                     '-entity', 'obstacle3',
-                    '-file', os.path.expanduser('~/ros2_ws/src/my_world/models/cylinder_obstacle/model.sdf'),
-                    '-x', '0.0', '-y', '-1.5', '-z', '0.1'
+                    '-file', os.path.expanduser('~/ros2_ws/src/my_world/models/cylinder_obstacle/model_2.sdf'),
+                    '-x', '0.0', '-y', '-1.5', '-z', '0.5'
                 ],
                 output='screen'
             )
@@ -76,7 +73,7 @@ def generate_launch_description():
     )
 
     mpc_node = TimerAction(
-        period=8.0,
+        period=9.0,
         actions=[
             Node(
                 package='mpc_follower',

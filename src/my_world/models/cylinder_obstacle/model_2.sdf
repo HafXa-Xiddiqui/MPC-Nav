@@ -29,8 +29,8 @@
     
     <plugin name="pose_publisher" filename="libgazebo_ros_p3d.so">
       <ros>
-        <namespace>cylinder_obstacle</namespace>
-        <remapping>pose:=cylinder_obstacle/pose</remapping>
+        <namespace>cylinder_obstacle_2</namespace>
+        <remapping>pose:=cylinder_obstacle/pose_2</remapping>
       </ros>
       <body_name>link</body_name>
       <update_rate>30.0</update_rate>
