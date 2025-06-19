@@ -50,9 +50,9 @@ git clone https://github.com/HafXa-Xiddiqui/MPC-Nav
 
 **Build the workspace:**
 
-cd ~/ros2_ws
-colcon build --packages-select mpc_follower
-source install/setup.bash
+- cd ~/ros2_ws
+- colcon build
+- source install/setup.bash
 
 ---
 
