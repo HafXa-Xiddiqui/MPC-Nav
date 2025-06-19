@@ -17,16 +17,16 @@ This ROS 2 package implements a **Model Predictive Control (MPC)** algorithm for
 ```text
 src/
 └── mpc_follower/
-    ├── launch/                    # Launch files
-    │   └── mpc_sim.launch.py
-    ├── models/                    # Gazebo models (target, obstacles)
-    ├── mpc_follower_node.py       # Main MPC node
-    ├── mpc_solver.py              # MPC optimization logic
-    ├── CMakeLists.txt
-    ├── package.xml
+    ├── launch/                     # Launch files
+    │   └── launch_all.py
+    ├── mpc_follower/             
+    │   └── mpc_follower_node.py    # Main MPC node
+    │   └── mpc_solver.py           # MPC optimization logic
+    ├── setup.py
+    ├── setup.cfg
     └── README.md
 └── my_world/
-       ├── models/                    # Gazebo models (target, obstacles)
+       ├── models/                  # Gazebo models (target, obstacles)
 ```
 
 ---
