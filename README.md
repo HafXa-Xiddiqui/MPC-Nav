@@ -51,6 +51,16 @@ git clone https://github.com/HafXa-Xiddiqui/MPC-Nav.git
 ```
 ---
 
+**Build**
+
+```text
+cd ~/MPC-Nav
+colcon build
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+```
+---
+
 **Launch the full simulation**
 ```text
 ros2 launch mpc_follower mpc_sim.launch.py
