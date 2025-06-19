@@ -32,19 +32,19 @@ mpc_follower/
 Ensure the following are installed:
 
 - ROS 2 Humble (or compatible distro)
-- Gazebo (with `gazebo_ros`)
-- `casadi` for nonlinear optimization
-  ```bash
-  pip install casadi
+- Gazebo (with gazebo_ros)
+- casadi for nonlinear optimization
+- bash
+- pip install casadi
 
 ---
 
 **Installation**
 
-    Clone the repo into your ROS 2 workspace:
+Clone the repo into your ROS 2 workspace:
 
 cd ~/ros2_ws/src
-git clone https://github.com/<your-username>/mpc_follower.git
+git clone https://github.com/HafXa-Xiddiqui/mpc_follower.git
 
 ---
 
