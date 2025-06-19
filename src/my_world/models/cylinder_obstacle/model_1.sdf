@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="cylinder_obstacle">
+    <static>false</static>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <radius>0.2</radius>           <!-- radius of the cylinder -->
+            <length>1.0</length>           <!-- height of the cylinder -->
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>1 0 0 1</ambient>     <!-- red color -->
+          <diffuse>1 0 0 1</diffuse>
+        </material>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+            <radius>0.2</radius>
+            <length>1.0</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <pose>0 0 0.5 0 0 0</pose>          <!-- position of the cylinder: z = half height -->
+    </link>
+
+    
+    <plugin name="pose_publisher" filename="libgazebo_ros_p3d.so">
+      <ros>
+        <namespace>cylinder_obstacle_1</namespace>
+        <remapping>pose:=cylinder_obstacle_1/pose</remapping>
+      </ros>
+      <body_name>link</body_name>
+      <update_rate>30.0</update_rate>
+    </plugin>
+  </model>
+</sdf>

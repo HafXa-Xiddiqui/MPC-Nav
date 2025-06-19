@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="target_sphere">
+    <static>false</static>
+    <pose>1 0 0.1 0 0 0</pose>
+    <link name="link">
+      <inertial>
+        <mass>1.0</mass>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <sphere><radius>0.1</radius></sphere>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <sphere><radius>0.1</radius></sphere>
+        </geometry>
+        <material>
+          <ambient>1 0 0 1</ambient>
+          <diffuse>1 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+
+    <plugin name="pose_publisher" filename="libgazebo_ros_p3d.so">
+      <ros>
+        <namespace>target_sphere</namespace>
+        <remapping>pose:=target_sphere/pose</remapping>
+      </ros>
+      <body_name>link</body_name>
+      <update_rate>30.0</update_rate>
+    </plugin>
+  </model>
+</sdf>
