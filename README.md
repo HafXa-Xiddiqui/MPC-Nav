@@ -20,7 +20,6 @@ src/
     ├── launch/                    # Launch files
     │   └── mpc_sim.launch.py
     ├── models/                    # Gazebo models (target, obstacles)
-    ├── config/                    # Parameters (optional)
     ├── mpc_follower_node.py       # Main MPC node
     ├── mpc_solver.py              # MPC optimization logic
     ├── CMakeLists.txt
