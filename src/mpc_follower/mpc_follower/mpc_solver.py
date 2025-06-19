@@ -2,20 +2,20 @@ import numpy as np
 import casadi as ca
 
 # Constants
-dt = 0.2
-N = 7
-n_states = 3
-n_controls = 2
-n_obs = 3
+dt = 0.2 # Time step (seconds) 
+N = 7 # prediction horizon
+n_states = 3 # x, y & theeta
+n_controls = 2 # v,w
+n_obs = 3 # max number of obstacles considered
 
 robot_radius = 0.03        # approximate radius of your robot footprint (meters)
 cylinder_radius = 0.2     # radius of cylinder obstacles (meters)
-safety_margin = 0.2      # extra margin to be safe
+safety_margin = 0.2      # obstacle inflated
 
 # minimum distance = robot radius + obstacle radius + safety margin
 obstacle_min_dist = robot_radius + cylinder_radius + safety_margin
 
-safe_distance = 0.4        # Nearly touch the goal
+safe_distance = 0.4        # safe distance from the goal
 
 # Symbolic variables
 x = ca.SX.sym('x')
@@ -46,10 +46,10 @@ P = ca.SX.sym('P', n_states + 2 + 2 * n_obs)
 Q = ca.diag([20, 20, 2])
 R = ca.diag([0.6, 0.1])
 cost = 0
-g = []
+g = []  # constraints list
 
 # Initial state
-X[:, 0] = P[0:3]
+X[:, 0] = P[0:3]    # initial state
 
 for k in range(N):
     st = X[:, k]
@@ -67,7 +67,7 @@ for k in range(N):
     dist_error = dist_to_target - safe_distance
     cost += Q[0, 0] * dist_error**2
 
-    # Only penalize heading when near goal (within 1m)
+    # Only penalize heading when near goal (heading cost)
     fade_heading = ca.fmax(0.0, 1.0 - dist_to_target / 0.1)
     desired_theta = ca.atan2(ty - st[1], tx - st[0])
     heading_error = ca.atan2(ca.sin(st[2] - desired_theta), ca.cos(st[2] - desired_theta))
@@ -86,7 +86,7 @@ for k in range(N):
         obs_y = P[5 + 2 * i + 1]
         dist_sq = (st[0] - obs_x)**2 + (st[1] - obs_y)**2
         # Soft penalty
-        cost += 12.0 / (dist_sq + 1e-2)
+        cost += 12.0 / (dist_sq + 1e-2) # soft constraint
         # HARD constraint: keep at least obstacle_min_dist away
         g.append(dist_sq - obstacle_min_dist**2)
 

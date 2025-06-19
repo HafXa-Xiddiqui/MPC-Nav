@@ -12,6 +12,7 @@ class MPCFollower(Node):
         self.robot_pose = None
         self.target_pose = None
 
+        # Subscribe to robot and goal odometry
         self.create_subscription(Odometry, '/odom', self.robot_callback, 10)
         self.create_subscription(Odometry, '/target_sphere/odom', self.target_callback, 10)
         self.cmd_pub = self.create_publisher(Twist, '/cmd_vel', 10)

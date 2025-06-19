@@ -3,8 +3,8 @@
 <package format="3">
   <name>mpc_follower</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="hafsa@todo.todo">hafsa</maintainer>
+  <description>TODO: Implementation of MPC for Turtlebot3</description>
+  <maintainer email="hafsa.xiddiqui@gmail.com">hafsa</maintainer>
   <license>TODO: License declaration</license>
 
   <test_depend>ament_copyright</test_depend>
