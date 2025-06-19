@@ -45,18 +45,9 @@ Ensure the following are installed:
 
 **Installation**
 
-Clone the repo into your ROS 2 workspace:
+Clone the repo
 
-cd ~/ros2_ws
 git clone https://github.com/HafXa-Xiddiqui/MPC-Nav.git
-
----
-
-**Build the workspace:**
-
-- cd ~/ros2_ws
-- colcon build
-- source install/setup.bash
 
 ---
 
