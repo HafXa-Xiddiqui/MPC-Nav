@@ -44,7 +44,7 @@ P = ca.SX.sym('P', n_states + 2 + 2 * n_obs)
 
 # Cost weights
 Q = ca.diag([20, 20, 2])
-R = ca.diag([0.8, 0.1])
+R = ca.diag([0.6, 0.1])
 cost = 0
 g = []
 
@@ -86,7 +86,7 @@ for k in range(N):
         obs_y = P[5 + 2 * i + 1]
         dist_sq = (st[0] - obs_x)**2 + (st[1] - obs_y)**2
         # Soft penalty
-        cost += 10.0 / (dist_sq + 1e-2)
+        cost += 12.0 / (dist_sq + 1e-2)
         # HARD constraint: keep at least obstacle_min_dist away
         g.append(dist_sq - obstacle_min_dist**2)
 
@@ -109,7 +109,7 @@ solver = ca.nlpsol('solver', 'ipopt', nlp_prob, opts)
 
 # Control bounds
 lbx = np.tile(np.array([-0.5, -2.0]), N)
-ubx = np.tile(np.array([1.2, 2.0]), N)
+ubx = np.tile(np.array([1.1, 2.0]), N)
 
 # Constraint bounds (obstacle distances must be ≥ min)
 lbg = np.zeros(N * n_obs)
