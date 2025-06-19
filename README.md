@@ -44,7 +44,7 @@ Ensure the following are installed:
 Clone the repo into your ROS 2 workspace:
 
 cd ~/ros2_ws/src
-git clone https://github.com/HafXa-Xiddiqui/mpc_follower.git
+git clone https://github.com/HafXa-Xiddiqui/MPC-Nav
 
 ---
 
